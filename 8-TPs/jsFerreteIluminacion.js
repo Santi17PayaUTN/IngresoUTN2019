@@ -9,14 +9,14 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 
  */
 function CalcularPrecio () { 
-    { var lamparaPrecio; var lamparaCantidad; var lamparaMarca; var descuento; var precioFinal; var aumento;
+    { var lamparaPrecio; var lamparaCantidad; var lamparaMarca; var descuento; var precioFinal; var iIBB;
         lamparaCantidad= parseInt(document.getElementById("Cantidad").value);
         lamparaMarca= document.getElementById("Marca").value;
         lamparaPrecio= 35*lamparaCantidad;
-        
+        iIBB= 0;
     if(lamparaCantidad>=6){
         descuento=lamparaPrecio*0.5
-        precioFinal=lamparaPrecio-descuento
+        precioFinal=lamparaPrecio-descuento;
     }
     else if (lamparaCantidad==5){
         if(lamparaMarca == "ArgentinaLuz"){
@@ -25,7 +25,7 @@ function CalcularPrecio () {
     }
         else{
             descuento=lamparaPrecio*0.3
-            precioFinal=lamparaPrecio-descuento
+            precioFinal=lamparaPrecio-descuento;
         }
     }
     else if (lamparaCantidad==4){
@@ -35,7 +35,7 @@ function CalcularPrecio () {
         }
         else{
             descuento=lamparaPrecio*0.2
-            precioFinal=lamparaPrecio-descuento
+            precioFinal=lamparaPrecio-descuento;
         }
     }
     else if (lamparaCantidad==3){
@@ -49,13 +49,13 @@ function CalcularPrecio () {
         }
         else{
             descuento=lamparaPrecio*0.05
-            precioFinal=lamparaPrecio-descuento
+            precioFinal=lamparaPrecio-descuento;
         }
     }
-    else if (precioFinal>=121){
-        aumento=precioFinal*01
-        precioFinal=precioFinal+aumento
-        alert("Usted pago $"+aumento+"de IIBB");
+    if(precioFinal>121){
+        iIBB=precioFinal*0.1
+        precioFinal=precioFinal+iIBB
+        alert("Usted pago $"+iIBB+" de IIBB");
     }
     document.getElementById("precioDescuento").value= "$"+ precioFinal.toFixed(2);
     }
